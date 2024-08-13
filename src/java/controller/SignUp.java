@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,7 @@ import model.User;
 public class SignUp extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String mobile = request.getParameter("mobile");
         String name = request.getParameter("name");
@@ -40,6 +41,8 @@ public class SignUp extends HttpServlet {
             ArrayList<User> userList = (ArrayList<User>) sc.getAttribute("userList");
             userList.add(user);
             sc.setAttribute("userList", userList);
+            
+            response.sendRedirect("login.jsp");
         }
     }
 }
