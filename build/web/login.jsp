@@ -13,12 +13,14 @@
         <link rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>Login</h1>          
 
         <%
-            out.write("<h3>"+ request.getParameter("error")+"<h3>");
-
-
+            if (request.getParameter("error") != null) {
+        %>
+        <h3 class="e"><%= request.getParameter("error")%></h3>
+        <%
+            }
         %>
 
         <form action="Login" method="POST">
