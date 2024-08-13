@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.User;
 
 /**
@@ -35,6 +36,10 @@ public class Login extends HttpServlet {
         for (User user : userList) {
             if (user.getMobile().equals(mobile)) {
                 userFound = true;
+
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+
                 response.sendRedirect("home.jsp");
                 break;
             }

@@ -4,6 +4,7 @@
     Author     : isharaLakshitha
 --%>
 
+<%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +14,23 @@
     </head>
     <body>
         <h1>Home</h1>
+
+        <%
+            if (session.getAttribute("user") != null) {
+                User user = (User) session.getAttribute("user");
+        %>
+        <p>Mobile: <%= user.getMobile()%></p>
+        <p>Name: <%= user.getName()%></p>
+        <p>Country: <%= user.getCountry()%></p>
+        <%
+            } else {
+                response.sendRedirect("login.jsp");
+            }
+        %>
+
+
+
+
+
     </body>
 </html>
