@@ -16,11 +16,9 @@
         <h1>Login</h1>          
 
         <%
-            if (request.getParameter("error") != null) {
-        %>
-        <h3 class="e"><%= request.getParameter("error")%></h3>
-        <%
-            }
+            if (request.getAttribute("error") != null) {%>
+        <h3 class="e"><%= request.getAttribute("error")%></h3>
+        <% }
         %>
 
         <form action="Login" method="POST">

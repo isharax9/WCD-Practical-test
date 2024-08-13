@@ -41,7 +41,8 @@ public class Login extends HttpServlet {
         }
 
         if (!userFound) {
-            response.sendRedirect("login.jsp?error=Invalid Details");
+            request.setAttribute("error", "Invalid Details");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 
     }
