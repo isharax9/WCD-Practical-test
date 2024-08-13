@@ -15,6 +15,12 @@
     <body>
         <h1>Login</h1>
 
+        <%
+            out.write("<h3>"+ request.getParameter("error")+"<h3>");
+
+
+        %>
+
         <form action="Login" method="POST">
 
             <div class="d1">Mobile</div>
